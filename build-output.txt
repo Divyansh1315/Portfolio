@@ -1,0 +1,59 @@
+﻿   Γû▓ Next.js 15.5.23
+
+   Creating an optimized production build ...
+node.exe :  ΓÜá Compiled with warnings in 6.6s
+At line:1 char:1
++ & 'C:\Program Files\nodejs\node.exe' 
+'./node_modules/next/dist/bin/ne ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( 
+    ΓÜá Compiled with warnings in 6.6s:Strin  
+  g) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandEr 
+   ror
+ 
+
+./node_modules/framer-motion/dist/cjs/index.js
+Module not found: Can't resolve 
+'@emotion/is-prop-valid' in 'D:\DV\Portfolio\n
+ode_modules\framer-motion\dist\cjs'
+
+Import trace for requested module:
+./node_modules/framer-motion/dist/cjs/index.js
+./src/components/ui/AnimatedSection.tsx
+./src/components/sections/AboutContent.tsx
+
+ Γ£ô Compiled successfully in 12.6s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/13) ...
+   Generating static pages (3/13) 
+   Generating static pages (6/13) 
+   Generating static pages (9/13) 
+ Γ£ô Generating static pages (13/13)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                     Size  First Load JS
+Γöî Γùï /                                        8.69 kB         122 kB
+Γö£ Γùï /_not-found                                123 B         103 kB
+Γö£ Γùï /about                                   5.66 kB         119 kB
+Γö£ Γùï /contact                                 4.11 kB         117 kB
+Γö£ Γùï /experience                              5.87 kB         119 kB
+Γö£ Γùï /projects                                  164 B         106 kB
+Γö£ ΓùÅ /projects/[slug]                           12 kB         125 kB
+Γö£   Γö£ /projects/factoryassist-ai
+Γö£   Γö£ /projects/phishing-ai-assistant
+Γö£   Γö£ /projects/gemba-observation-dashboard
+Γö£   Γöö /projects/mom-follow-up-automation
+Γöö Γùï /skills                                  4.91 kB         118 kB
++ First Load JS shared by all                 103 kB
+  Γö£ chunks/255-87552e6e05b8e3aa.js           46.4 kB
+  Γö£ chunks/4bd1b696-c023c6e3521b1417.js      54.2 kB
+  Γöö other shared chunks (total)              2.01 kB
+
+
+Γùï  (Static)  prerendered as static content
+ΓùÅ  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

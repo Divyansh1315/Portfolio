@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* =============================================
+   DESIGN TOKENS — Premium Corporate Technology
+   ============================================= */
+
+@theme {
+  /* Color Palette - Dark (Default) */
+  --color-background: #0a0e1a;
+  --color-foreground: #f1f5f9;
+
+  --color-surface: #131928;
+  --color-surface-secondary: #1a2035;
+
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+
+  --color-accent: #6366f1;
+  --color-accent-secondary: #8b5cf6;
+
+  --color-muted: #64748b;
+  --color-muted-foreground: #94a3b8;
+
+  --color-border: #1e293b;
+  --color-card: #131928;
+  --color-card-hover: #1a2035;
+
+  /* Typography Scale */
+  --font-size-display: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --font-size-h2: clamp(1.875rem, 3.5vw, 2.75rem);
+  --font-size-h3: clamp(1.5rem, 2.5vw, 1.875rem);
+  --font-size-body-lg: 1.125rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-label: 0.75rem;
+
+  /* Spacing */
+  --spacing-section-y: clamp(3.5rem, 8vw, 7.5rem);
+  --spacing-section-y-sm: clamp(2.5rem, 5vw, 5rem);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* =============================================
+   BASE STYLES
+   ============================================= */
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* =============================================
+   FOCUS STYLES
+   ============================================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================
+   SELECTION
+   ============================================= */
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* =============================================
+   SCROLL BEHAVIOR
+   ============================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for sticky navbar */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
