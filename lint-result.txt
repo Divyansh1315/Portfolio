@@ -1,2 +1,0 @@
-LINT PASS
-(no issues found)

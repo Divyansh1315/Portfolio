@@ -1,2 +1,0 @@
-Command failed: git log --oneline -5
-fatal: your current branch 'main' does not have any commits yet
