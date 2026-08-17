@@ -9,9 +9,14 @@ import { ContactMethods } from "@/components/sections/contact/ContactMethods";
 import { ContactOpportunities } from "@/components/sections/contact/ContactOpportunities";
 
 export const metadata: Metadata = {
-  title: "Contact | Divyansh Singh",
+  title: "Contact",
   description:
     "Connect with Divyansh Singh for opportunities across data analytics, AI, automation, PMO, and business technology.",
+  openGraph: {
+    title: "Contact | Divyansh Singh",
+    description:
+      "Connect with Divyansh Singh for opportunities across data analytics, AI, automation, PMO, and business technology.",
+  },
 };
 
 export default function ContactPage() {

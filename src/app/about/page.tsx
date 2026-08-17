@@ -11,9 +11,14 @@ import { AboutPhilosophy } from "@/components/sections/about/AboutPhilosophy";
 import { AboutDirection } from "@/components/sections/about/AboutDirection";
 
 export const metadata: Metadata = {
-  title: "About | Divyansh Singh",
+  title: "About",
   description:
     "Learn about Divyansh Singh's professional journey across PMO, data analytics, automation, applied AI, and business-focused technology solutions.",
+  openGraph: {
+    title: "About | Divyansh Singh",
+    description:
+      "Learn about Divyansh Singh's professional journey across PMO, data analytics, automation, applied AI, and business-focused technology solutions.",
+  },
 };
 
 export default function AboutPage() {

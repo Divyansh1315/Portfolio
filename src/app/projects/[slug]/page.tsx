@@ -18,17 +18,29 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return { title: "Project Not Found | Divyansh Singh" };
+    return { title: "Project Not Found" };
   }
 
+  const description = project.description.length > 160
+    ? project.description.slice(0, 157) + "..."
+    : project.description;
+
   return {
-    title: `${project.title} | Divyansh Singh`,
-    description: project.description,
+    title: project.title,
+    description,
     openGraph: {
       title: `${project.title} | Divyansh Singh`,
-      description: project.description,
+      description,
       type: "article",
-      ...(project.image && { images: [{ url: project.image }] }),
+      images: project.image
+        ? [{ url: project.image, width: 1200, height: 630, alt: `${project.title} cover image` }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Divyansh Singh`,
+      description,
+      images: project.image ? [project.image] : undefined,
     },
   };
 }

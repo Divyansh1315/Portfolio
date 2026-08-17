@@ -10,9 +10,14 @@ import { SkillsUsage } from "@/components/sections/skills/SkillsUsage";
 import { SkillsBridge } from "@/components/sections/skills/SkillsBridge";
 
 export const metadata: Metadata = {
-  title: "Skills | Divyansh Singh",
+  title: "Skills",
   description:
     "Explore Divyansh Singh's skills across Power BI, analytics, AI, Power Automate, Python, Microsoft 365, and PMO.",
+  openGraph: {
+    title: "Skills | Divyansh Singh",
+    description:
+      "Explore Divyansh Singh's skills across Power BI, analytics, AI, Power Automate, Python, Microsoft 365, and PMO.",
+  },
 };
 
 export default function SkillsPage() {

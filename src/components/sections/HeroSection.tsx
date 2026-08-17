@@ -6,6 +6,7 @@ import { personalInfo, socialLinks } from "@/data/personal";
 import { isPlaceholder } from "@/lib/utils";
 import { ArrowRight, Download, Linkedin, Github, Mail } from "lucide-react";
 import { MotionDiv } from "@/components/ui/ClientMotion";
+import { duration, ease } from "@/lib/motion";
 
 const iconMap: Record<string, React.ReactNode> = {
   linkedin: <Linkedin className="h-5 w-5" />,
@@ -25,9 +26,9 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column — Content */}
           <MotionDiv
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: duration.slow, ease: ease.out }}
             className="flex flex-col gap-6"
           >
             {/* Eyebrow */}
@@ -76,16 +77,6 @@ export function HeroSection() {
                   Download Resume
                 </Button>
               )}
-              {isPlaceholder(personalInfo.resumePath) && (
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  disabled
-                  icon={<Download className="h-4 w-4" />}
-                >
-                  Download Resume
-                </Button>
-              )}
             </div>
 
             {/* Social Links — only show configured ones */}
@@ -120,7 +111,7 @@ export function HeroSection() {
           <MotionDiv
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: duration.slow, delay: 0.3, ease: ease.out }}
             className="hidden lg:flex items-center justify-center"
           >
             <div className="relative w-full max-w-sm">

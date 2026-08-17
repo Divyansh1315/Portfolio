@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -6,6 +7,17 @@ import { Badge } from "@/components/ui/Badge";
 import { TechPill } from "@/components/ui/TechPill";
 import { projects } from "@/data/projects";
 import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Case studies and projects by Divyansh Singh across data analytics, AI, automation, and business technology solutions.",
+  openGraph: {
+    title: "Projects | Divyansh Singh",
+    description:
+      "Case studies and projects by Divyansh Singh across data analytics, AI, automation, and business technology solutions.",
+  },
+};
 
 export default function ProjectsPage() {
   return (

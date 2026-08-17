@@ -2,6 +2,13 @@
 
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+import {
+  duration,
+  ease,
+  stagger as staggerPresets,
+  fadeUp,
+  viewport,
+} from "@/lib/motion";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -20,12 +27,9 @@ interface StaggerItemProps {
   className?: string;
 }
 
-// Dynamic imports to avoid SSR issues with framer-motion on Node.js 24
+// Dynamic import to avoid SSR issues with framer-motion on Node.js 24
 const MotionDiv = dynamic(
-  () => import("framer-motion").then((mod) => {
-    const { motion } = mod;
-    return { default: motion.div };
-  }),
+  () => import("framer-motion").then((mod) => ({ default: mod.motion.div })),
   { ssr: false }
 );
 
@@ -36,10 +40,10 @@ export function AnimatedSection({
 }: AnimatedSectionProps) {
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      viewport={viewport}
+      transition={{ duration: duration.base, delay, ease: ease.out }}
       className={className}
     >
       {children}
@@ -50,13 +54,13 @@ export function AnimatedSection({
 export function StaggerContainer({
   children,
   className,
-  staggerDelay = 0.1,
+  staggerDelay = staggerPresets.base,
 }: StaggerContainerProps) {
   return (
     <MotionDiv
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewport}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
@@ -68,18 +72,9 @@ export function StaggerContainer({
   );
 }
 
-export function StaggerItem({
-  children,
-  className,
-}: StaggerItemProps) {
+export function StaggerItem({ children, className }: StaggerItemProps) {
   return (
-    <MotionDiv
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-      }}
-      className={className}
-    >
+    <MotionDiv variants={fadeUp} className={className}>
       {children}
     </MotionDiv>
   );

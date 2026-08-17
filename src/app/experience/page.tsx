@@ -13,9 +13,14 @@ import { ExperienceThemes } from "@/components/sections/experience/ExperienceThe
 import { ExperienceCredentials } from "@/components/sections/experience/ExperienceCredentials";
 
 export const metadata: Metadata = {
-  title: "Experience | Divyansh Singh",
+  title: "Experience",
   description:
     "Professional experience of Divyansh Singh across project governance, analytics, automation, reporting, and applied AI.",
+  openGraph: {
+    title: "Experience | Divyansh Singh",
+    description:
+      "Professional experience of Divyansh Singh across project governance, analytics, automation, reporting, and applied AI.",
+  },
 };
 
 export default function ExperiencePage() {

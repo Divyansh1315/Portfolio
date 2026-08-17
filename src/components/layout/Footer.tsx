@@ -34,7 +34,7 @@ export function Footer() {
 
           {/* Social Links — only show configured ones */}
           {configuredLinks.length > 0 && (
-            <div className="flex items-center gap-4">
+            <nav aria-label="Social links" className="flex items-center gap-4">
               {configuredLinks.map((link) => {
                 const isEmail = link.icon === "mail";
                 const href = isEmail ? `mailto:${link.url}` : link.url;
@@ -52,7 +52,7 @@ export function Footer() {
                   </a>
                 );
               })}
-            </div>
+            </nav>
           )}
 
           {/* Copyright */}

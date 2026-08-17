@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { personalInfo } from "@/data/personal";
 import Image from "next/image";
 import { MotionDiv } from "@/components/ui/ClientMotion";
+import { duration, ease } from "@/lib/motion";
 
 export function AboutHero() {
   return (
@@ -13,9 +14,9 @@ export function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Content — 3 columns */}
           <MotionDiv
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: duration.base, ease: ease.out }}
             className="lg:col-span-3 flex flex-col gap-5"
           >
             <p className="text-[length:var(--font-size-label)] font-semibold uppercase tracking-widest text-primary">
@@ -35,7 +36,7 @@ export function AboutHero() {
           <MotionDiv
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: duration.slow, delay: 0.2, ease: ease.out }}
             className="lg:col-span-2 flex items-center justify-center"
           >
             <div className="relative">
