@@ -3,14 +3,17 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { mainNavigation } from "@/data/navigation";
-import { personalInfo } from "@/data/personal";
-import { isPlaceholder } from "@/lib/utils";
 import { MobileNav } from "./MobileNav";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { FileText } from "lucide-react";
 
-export function Navbar() {
+interface NavbarProps {
+  name?: string;
+  resumeUrl?: string;
+}
+
+export function Navbar({ name, resumeUrl }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const resumeAvailable = !isPlaceholder(personalInfo.resumePath);
+  const displayName = name || "Divyansh Singh";
 
   return (
     <header
@@ -42,7 +45,7 @@ export function Navbar() {
             href="/"
             className="text-sm font-bold tracking-wide text-foreground uppercase hover:text-primary transition-colors"
           >
-            {personalInfo.name}
+            {displayName}
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,9 +63,9 @@ export function Navbar() {
               ))}
             </ul>
 
-            {resumeAvailable && (
+            {resumeUrl && (
               <a
-                href={personalInfo.resumePath}
+                href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-surface border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface-secondary hover:border-muted transition-all"

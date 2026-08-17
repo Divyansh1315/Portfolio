@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { personalInfo, socialLinks } from "@/data/personal";
-import { isPlaceholder } from "@/lib/utils";
 import { Linkedin, Github, Mail } from "lucide-react";
+import { getSiteSettings, getContactMethods } from "@/sanity/lib/fetch";
 
 const iconMap: Record<string, React.ReactNode> = {
   linkedin: <Linkedin className="h-5 w-5" />,
@@ -10,10 +9,14 @@ const iconMap: Record<string, React.ReactNode> = {
   mail: <Mail className="h-5 w-5" />,
 };
 
-export function Footer() {
-  const configuredLinks = socialLinks.filter(
-    (link) => !isPlaceholder(link.url)
-  );
+export async function Footer() {
+  const [settings, contactMethods] = await Promise.all([
+    getSiteSettings(),
+    getContactMethods(),
+  ]);
+
+  const name = settings?.name || "Divyansh Singh";
+  const footerText = settings?.footerText || "Data Analytics · AI · Automation · PMO";
 
   return (
     <footer className="border-t border-border py-12 lg:py-16">
@@ -24,29 +27,29 @@ export function Footer() {
             href="/"
             className="text-sm font-bold tracking-wide text-foreground uppercase"
           >
-            {personalInfo.name}
+            {name}
           </Link>
 
           {/* Positioning */}
           <p className="text-sm text-muted-foreground">
-            Data Analytics &middot; AI &middot; Automation &middot; PMO
+            {footerText}
           </p>
 
-          {/* Social Links — only show configured ones */}
-          {configuredLinks.length > 0 && (
+          {/* Social Links */}
+          {contactMethods.length > 0 && (
             <nav aria-label="Social links" className="flex items-center gap-4">
-              {configuredLinks.map((link) => {
-                const isEmail = link.icon === "mail";
+              {contactMethods.map((link) => {
+                const isEmail = link.type === "email";
                 const href = isEmail ? `mailto:${link.url}` : link.url;
 
                 return (
                   <a
-                    key={link.platform}
+                    key={link._id}
                     href={href}
                     target={isEmail ? undefined : "_blank"}
                     rel={isEmail ? undefined : "noopener noreferrer"}
                     className="flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border text-muted-foreground hover:text-foreground hover:border-muted transition-all"
-                    aria-label={link.platform}
+                    aria-label={link.label}
                   >
                     {iconMap[link.icon] ?? null}
                   </a>
@@ -57,7 +60,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} {personalInfo.name}
+            &copy; {new Date().getFullYear()} {name}
           </p>
         </div>
       </Container>

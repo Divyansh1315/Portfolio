@@ -1,9 +1,13 @@
 import { MetadataRoute } from "next";
-import { projects } from "@/data/projects";
-import { siteConfig } from "@/lib/siteConfig";
+import { getProjectSlugs, getSiteSettings } from "@/sanity/lib/fetch";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [settings, projectSlugs] = await Promise.all([
+    getSiteSettings(),
+    getProjectSlugs(),
+  ]);
+
+  const baseUrl = settings?.siteUrl || "https://divyanshsingh.com";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -44,8 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
+  const projectRoutes: MetadataRoute.Sitemap = projectSlugs.map((p) => ({
+    url: `${baseUrl}/projects/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,

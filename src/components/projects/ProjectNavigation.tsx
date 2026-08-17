@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { projects } from "@/data/projects";
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react";
 
 interface ProjectNavigationProps {
   currentSlug: string;
+  allProjects: { slug: string; title: string }[];
 }
 
-export function ProjectNavigation({ currentSlug }: ProjectNavigationProps) {
-  const currentIndex = projects.findIndex((p) => p.slug === currentSlug);
-  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+export function ProjectNavigation({ currentSlug, allProjects }: ProjectNavigationProps) {
+  const currentIndex = allProjects.findIndex((p) => p.slug === currentSlug);
+  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
 
   return (
     <section className="py-(--spacing-section-y) border-t border-border">

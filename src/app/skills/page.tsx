@@ -8,6 +8,7 @@ import { SkillsHero } from "@/components/sections/skills/SkillsHero";
 import { SkillsCategories } from "@/components/sections/skills/SkillsCategories";
 import { SkillsUsage } from "@/components/sections/skills/SkillsUsage";
 import { SkillsBridge } from "@/components/sections/skills/SkillsBridge";
+import { getSkillGroups } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -20,11 +21,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SkillsPage() {
+export default async function SkillsPage() {
+  const skillGroups = await getSkillGroups();
+
   return (
     <div className="pt-24">
       <SkillsHero />
-      <SkillsCategories />
+      <SkillsCategories skillGroups={skillGroups} />
       <SkillsUsage />
       <SkillsBridge />
 

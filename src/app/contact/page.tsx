@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { ContactHero } from "@/components/sections/contact/ContactHero";
 import { ContactMethods } from "@/components/sections/contact/ContactMethods";
 import { ContactOpportunities } from "@/components/sections/contact/ContactOpportunities";
+import { getContactMethods } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -19,11 +20,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const contactMethods = await getContactMethods();
+
   return (
     <div className="pt-24">
       <ContactHero />
-      <ContactMethods />
+      <ContactMethods contactMethods={contactMethods} />
       <ContactOpportunities />
 
       {/* CTA Section */}

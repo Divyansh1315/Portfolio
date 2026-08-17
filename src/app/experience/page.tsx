@@ -4,13 +4,12 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Download } from "lucide-react";
-import { personalInfo } from "@/data/personal";
-import { isPlaceholder } from "@/lib/utils";
 import { ExperienceHero } from "@/components/sections/experience/ExperienceHero";
 import { ExperienceSummary } from "@/components/sections/experience/ExperienceSummary";
 import { ExperienceTimeline } from "@/components/sections/experience/ExperienceTimeline";
 import { ExperienceThemes } from "@/components/sections/experience/ExperienceThemes";
 import { ExperienceCredentials } from "@/components/sections/experience/ExperienceCredentials";
+import { getSiteSettings, getExperience, getCertifications } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -23,14 +22,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ExperiencePage() {
+export default async function ExperiencePage() {
+  const [settings, experience, certifications] = await Promise.all([
+    getSiteSettings(),
+    getExperience(),
+    getCertifications(),
+  ]);
+
+  const resumeUrl = settings?.resumeFile?.asset?.url;
+  const showResume = settings?.showResumeCta && resumeUrl;
+
   return (
     <div className="pt-24">
       <ExperienceHero />
       <ExperienceSummary />
-      <ExperienceTimeline />
+      <ExperienceTimeline experience={experience} />
       <ExperienceThemes />
-      <ExperienceCredentials />
+      <ExperienceCredentials certifications={certifications} />
 
       {/* CTA Section */}
       <Section>
@@ -49,14 +57,14 @@ export default function ExperiencePage() {
               >
                 Explore Projects
               </Button>
-              {!isPlaceholder(personalInfo.resumePath) && (
+              {showResume && (
                 <Button
-                  href={personalInfo.resumePath}
+                  href={resumeUrl}
                   variant="secondary"
                   external
                   icon={<Download className="h-4 w-4" />}
                 >
-                  Download Resume
+                  {settings?.resumeButtonLabel || "Download Resume"}
                 </Button>
               )}
             </div>

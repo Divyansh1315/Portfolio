@@ -2,19 +2,21 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { personalInfo, socialLinks } from "@/data/personal";
-import { isPlaceholder } from "@/lib/utils";
-import { ArrowRight, Download, Linkedin, Github, Mail } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { MotionDiv } from "@/components/ui/ClientMotion";
 import { duration, ease } from "@/lib/motion";
+import type { SanitySiteSettings } from "@/sanity/lib/types";
 
-const iconMap: Record<string, React.ReactNode> = {
-  linkedin: <Linkedin className="h-5 w-5" />,
-  github: <Github className="h-5 w-5" />,
-  mail: <Mail className="h-5 w-5" />,
-};
+interface HeroSectionProps {
+  settings: SanitySiteSettings | null;
+}
 
-export function HeroSection() {
+export function HeroSection({ settings }: HeroSectionProps) {
+  if (!settings) return null;
+
+  const resumeUrl = settings.resumeFile?.asset?.url;
+  const showResume = settings.showResumeCta && resumeUrl;
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 lg:pb-24 overflow-hidden">
       {/* Subtle gradient background */}
@@ -38,73 +40,48 @@ export function HeroSection() {
 
             {/* Name */}
             <h1 className="text-[length:var(--font-size-display)] font-bold leading-[1.1] text-foreground tracking-tight">
-              {personalInfo.name.toUpperCase()}
+              {settings.name.toUpperCase()}
             </h1>
 
             {/* Professional Positioning */}
             <p className="text-[length:var(--font-size-body-lg)] font-medium text-primary tracking-wide">
-              {personalInfo.headline}
+              {settings.headline}
             </p>
 
             {/* Tagline */}
             <p className="text-[length:var(--font-size-h3)] font-semibold leading-snug text-foreground/90 whitespace-pre-line">
-              {personalInfo.tagline}
+              {settings.tagline}
             </p>
 
             {/* Supporting Copy */}
             <p className="text-[length:var(--font-size-body-lg)] leading-relaxed text-muted-foreground max-w-lg">
-              {personalInfo.summary}
+              {settings.summary}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <Button
-                href="/projects"
-                variant="primary"
-                size="lg"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Explore My Work
-              </Button>
-              {!isPlaceholder(personalInfo.resumePath) && (
+              {settings.primaryCtaLabel && settings.primaryCtaUrl && (
                 <Button
-                  href={personalInfo.resumePath}
+                  href={settings.primaryCtaUrl}
+                  variant="primary"
+                  size="lg"
+                  icon={<ArrowRight className="h-4 w-4" />}
+                >
+                  {settings.primaryCtaLabel}
+                </Button>
+              )}
+              {showResume && (
+                <Button
+                  href={resumeUrl}
                   variant="secondary"
                   size="lg"
                   external
                   icon={<Download className="h-4 w-4" />}
                 >
-                  Download Resume
+                  {settings.resumeButtonLabel || "Download Resume"}
                 </Button>
               )}
             </div>
-
-            {/* Social Links — only show configured ones */}
-            {socialLinks.some((link) => !isPlaceholder(link.url)) && (
-              <div className="flex items-center gap-3 mt-4">
-                {socialLinks
-                  .filter((link) => !isPlaceholder(link.url))
-                  .map((link) => {
-                    const isEmail = link.icon === "mail";
-                    const href = isEmail
-                      ? `mailto:${link.url}`
-                      : link.url;
-
-                    return (
-                      <a
-                        key={link.platform}
-                        href={href}
-                        target={isEmail ? undefined : "_blank"}
-                        rel={isEmail ? undefined : "noopener noreferrer"}
-                        className="flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-                        aria-label={link.platform}
-                      >
-                        {iconMap[link.icon] ?? null}
-                      </a>
-                    );
-                  })}
-              </div>
-            )}
           </MotionDiv>
 
           {/* Right Column — Premium Process Visual */}

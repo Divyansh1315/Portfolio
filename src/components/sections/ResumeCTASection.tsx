@@ -2,12 +2,21 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { personalInfo } from "@/data/personal";
-import { isPlaceholder } from "@/lib/utils";
 import { Download, Linkedin } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import type { SanitySiteSettings, SanityHomepageContent } from "@/sanity/lib/types";
 
-export function ResumeCTASection() {
+interface ResumeCTASectionProps {
+  settings: SanitySiteSettings | null;
+  homepage: SanityHomepageContent | null;
+}
+
+export function ResumeCTASection({ settings, homepage }: ResumeCTASectionProps) {
+  if (!settings) return null;
+
+  const resumeUrl = settings.resumeFile?.asset?.url;
+  const showResume = settings.showResumeCta && resumeUrl;
+
   return (
     <section id="resume" className="py-(--spacing-section-y) relative overflow-hidden">
       {/* Background treatment for visual contrast */}
@@ -18,21 +27,21 @@ export function ResumeCTASection() {
       <Container>
         <AnimatedSection className="text-center max-w-2xl mx-auto">
           <h2 className="text-[length:var(--font-size-h2)] font-bold leading-tight text-foreground mb-4">
-            Looking for someone who can bridge business and technology?
+            {homepage?.resumeCtaHeading || "Looking for someone who can bridge business and technology?"}
           </h2>
           <p className="text-[length:var(--font-size-body-lg)] leading-relaxed text-muted-foreground mb-8">
-            I&apos;m exploring opportunities where I can combine data analytics, automation, AI, and project management to solve meaningful business problems.
+            {homepage?.resumeCtaDescription || "I'm exploring opportunities where I can combine data analytics, automation, AI, and project management to solve meaningful business problems."}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {!isPlaceholder(personalInfo.resumePath) ? (
+            {showResume ? (
               <Button
-                href={personalInfo.resumePath}
+                href={resumeUrl}
                 variant="primary"
                 size="lg"
                 external
                 icon={<Download className="h-4 w-4" />}
               >
-                Download Resume
+                {settings.resumeButtonLabel || "Download Resume"}
               </Button>
             ) : (
               <Button
@@ -41,29 +50,18 @@ export function ResumeCTASection() {
                 disabled
                 icon={<Download className="h-4 w-4" />}
               >
-                Download Resume
+                {settings.resumeButtonLabel || "Download Resume"}
               </Button>
             )}
-            {!isPlaceholder(personalInfo.linkedIn) ? (
-              <Button
-                href={personalInfo.linkedIn}
-                variant="secondary"
-                size="lg"
-                external
-                icon={<Linkedin className="h-4 w-4" />}
-              >
-                Connect on LinkedIn
-              </Button>
-            ) : (
-              <Button
-                variant="secondary"
-                size="lg"
-                disabled
-                icon={<Linkedin className="h-4 w-4" />}
-              >
-                Connect on LinkedIn
-              </Button>
-            )}
+            <Button
+              href="https://www.linkedin.com/in/divyansh-singh-25897a179/"
+              variant="secondary"
+              size="lg"
+              external
+              icon={<Linkedin className="h-4 w-4" />}
+            >
+              Connect on LinkedIn
+            </Button>
           </div>
         </AnimatedSection>
       </Container>

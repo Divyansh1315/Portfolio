@@ -1,4 +1,3 @@
-export { ProjectCaseStudyView } from "./ProjectCaseStudy";
 export { ProjectHero } from "./ProjectHero";
 export { ProjectOverview } from "./ProjectOverview";
 export { ProjectProblem } from "./ProjectProblem";
