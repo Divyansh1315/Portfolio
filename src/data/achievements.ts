@@ -6,7 +6,7 @@ export const achievements: Achievement[] = [
     title: "McKinsey Forward Program",
     description:
       "Completed the McKinsey Forward learning program focused on practical problem-solving, adaptability, communication, and modern workplace capabilities.",
-    date: "",
+    date: "Jul 2026",
     category: "Professional Development",
     icon: "GraduationCap",
   },
@@ -15,16 +15,16 @@ export const achievements: Achievement[] = [
     title: "AI & Innovation Initiatives",
     description:
       "Hands-on participation in AI-focused prototypes, hackathons, and business problem-solving initiatives.",
-    date: "",
+    date: "Aug 2026",
     category: "Innovation",
     icon: "Lightbulb",
   },
   {
-    id: "analytics-automation",
-    title: "Analytics & Automation Projects",
+    id: "hack-a-web",
+    title: "Hack-A-Web Hackathon MANIT Bhopal",
     description:
-      "Built practical dashboards and workflow automation solutions focused on improving visibility, follow-up, and decision support.",
-    date: "",
+      "Participated in the Hack-A-Web hackathon at MANIT Bhopal, building practical solutions under competitive constraints.",
+    date: "2022",
     category: "Technical",
     icon: "BarChart3",
   },

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Project } from "@/types/portfolio";
 import { TechPill } from "@/components/ui/TechPill";
 import { Badge } from "@/components/ui/Badge";
@@ -73,6 +74,22 @@ export function ProjectCards({ projects }: ProjectCardsProps) {
 }
 
 function ProjectPreview({ project }: { project: Project }) {
+  if (project.image) {
+    return (
+      <div className="relative h-48 overflow-hidden">
+        <Image
+          src={project.image}
+          alt={`${project.title} project preview`}
+          fill
+          className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative h-48 bg-gradient-to-br from-surface-secondary to-surface flex items-center justify-center overflow-hidden">
       {/* Decorative elements */}

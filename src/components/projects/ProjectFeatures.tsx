@@ -25,6 +25,11 @@ import {
   Play,
   AlertTriangle,
   ArrowUpCircle,
+  GitBranch,
+  Sparkles,
+  Braces,
+  Database,
+  Repeat,
 } from "lucide-react";
 import { ElementType } from "react";
 
@@ -50,6 +55,11 @@ const iconMap: Record<string, ElementType> = {
   Play,
   AlertTriangle,
   ArrowUpCircle,
+  GitBranch,
+  Sparkles,
+  Braces,
+  Database,
+  Repeat,
 };
 
 interface ProjectFeaturesProps {

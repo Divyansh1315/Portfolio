@@ -3,7 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { personalInfo } from "@/data/personal";
-import { User } from "lucide-react";
+import Image from "next/image";
 import { MotionDiv } from "@/components/ui/ClientMotion";
 
 export function AboutHero() {
@@ -38,55 +38,32 @@ export function AboutHero() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="lg:col-span-2 flex items-center justify-center"
           >
-            <ProfileVisual name={personalInfo.name} />
+            <div className="relative">
+              {/* Outer glow ring */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-transparent blur-xl" />
+
+              {/* Main card */}
+              <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-2xl border border-border bg-gradient-to-br from-surface to-surface-secondary overflow-hidden">
+                {/* Decorative top stripe */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary/50 z-10" />
+
+                {/* Profile image */}
+                <Image
+                  src="/images/profile/Divyansh_Img.png"
+                  alt={`Profile photo of ${personalInfo.name}`}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 640px) 256px, 288px"
+                  priority
+                />
+
+                {/* Bottom decorative stripe */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/50 via-primary to-accent/50 z-10" />
+              </div>
+            </div>
           </MotionDiv>
         </div>
       </Container>
     </Section>
-  );
-}
-
-/**
- * Premium designed visual placeholder for profile image.
- * When a real profile image is added to /public/images/profile/,
- * this component can be replaced with next/image.
- */
-function ProfileVisual({ name }: { name: string }) {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
-
-  return (
-    <div className="relative">
-      {/* Outer glow ring */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-transparent blur-xl" />
-
-      {/* Main card */}
-      <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-2xl border border-border bg-gradient-to-br from-surface to-surface-secondary flex flex-col items-center justify-center gap-4 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary/50" />
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary/60" />
-        <div className="absolute top-4 right-8 w-2 h-2 rounded-full bg-accent/40" />
-
-        {/* Icon */}
-        <div className="flex items-center justify-center w-20 h-20 rounded-xl bg-primary/10 border border-primary/20">
-          <User className="w-10 h-10 text-primary/70" />
-        </div>
-
-        {/* Initials */}
-        <span className="text-2xl font-bold text-foreground/80 tracking-wide">
-          {initials}
-        </span>
-
-        {/* Subtle label */}
-        <span className="text-xs text-muted-foreground uppercase tracking-widest">
-          Profile
-        </span>
-
-        {/* Bottom decorative stripe */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/50 via-primary to-accent/50" />
-      </div>
-    </div>
   );
 }

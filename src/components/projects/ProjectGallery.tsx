@@ -34,12 +34,12 @@ export function ProjectGallery({ screenshots, confidentialityNote }: ProjectGall
             <StaggerItem key={i} className={i === 0 ? "md:col-span-2" : ""}>
               <div className="rounded-xl border border-border bg-card overflow-hidden">
                 {screenshot.src ? (
-                  <div className="relative aspect-video">
+                  <div className="relative aspect-video bg-surface-secondary">
                     <Image
                       src={screenshot.src}
                       alt={screenshot.alt}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes={i === 0 ? "(max-width: 768px) 100vw, 1200px" : "(max-width: 768px) 100vw, 600px"}
                     />
                   </div>

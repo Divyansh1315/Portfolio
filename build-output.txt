@@ -1,15 +1,16 @@
 ﻿   Γû▓ Next.js 15.5.23
 
    Creating an optimized production build ...
-node.exe :  ΓÜá Compiled with warnings in 6.6s
-At line:1 char:1
-+ & 'C:\Program Files\nodejs\node.exe' 
-'./node_modules/next/dist/bin/ne ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~
+node :  ΓÜá Compiled with warnings in 1617ms
+At line:1 char:42
++ ... iles\nodejs"; node 
+node_modules\next\dist\bin\next build 2>&1 | 
+Out-F ...
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ( 
-    ΓÜá Compiled with warnings in 6.6s:Strin  
-  g) [], RemoteException
+    ΓÜá Compiled with warnings in 1617ms:Str  
+  ing) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandEr 
    ror
  
@@ -22,9 +23,9 @@ ode_modules\framer-motion\dist\cjs'
 Import trace for requested module:
 ./node_modules/framer-motion/dist/cjs/index.js
 ./src/components/ui/AnimatedSection.tsx
-./src/components/sections/AboutContent.tsx
+./src/components/sections/about/AboutStory.tsx
 
- Γ£ô Compiled successfully in 12.6s
+ Γ£ô Compiled successfully in 4.4s
    Linting and checking validity of types ...
    Collecting page data ...
    Generating static pages (0/13) ...
@@ -36,15 +37,15 @@ Import trace for requested module:
    Collecting build traces ...
 
 Route (app)                                     Size  First Load JS
-Γöî Γùï /                                        8.69 kB         122 kB
+Γöî Γùï /                                        7.63 kB         127 kB
 Γö£ Γùï /_not-found                                123 B         103 kB
-Γö£ Γùï /about                                   5.66 kB         119 kB
-Γö£ Γùï /contact                                 4.11 kB         117 kB
-Γö£ Γùï /experience                              5.87 kB         119 kB
+Γö£ Γùï /about                                   4.53 kB         124 kB
+Γö£ Γùï /contact                                 4.05 kB         117 kB
+Γö£ Γùï /experience                              6.36 kB         120 kB
 Γö£ Γùï /projects                                  164 B         106 kB
-Γö£ ΓùÅ /projects/[slug]                           12 kB         125 kB
+Γö£ ΓùÅ /projects/[slug]                         6.32 kB         126 kB
 Γö£   Γö£ /projects/factoryassist-ai
-Γö£   Γö£ /projects/phishing-ai-assistant
+Γö£   Γö£ /projects/github-ai-notion-automation
 Γö£   Γö£ /projects/gemba-observation-dashboard
 Γö£   Γöö /projects/mom-follow-up-automation
 Γöö Γùï /skills                                  4.91 kB         118 kB
