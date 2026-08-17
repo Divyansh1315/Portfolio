@@ -1,0 +1,2735 @@
+[
+  {
+    "of": [
+      {
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "rules": [
+                        {
+                          "flag": "presence",
+                          "constraint": "required"
+                        },
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/",
+                                "/^mailto$/"
+                              ],
+                              "allowRelative": true,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ],
+                      "level": "error"
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                },
+                {
+                  "initialValue": true,
+                  "name": "openInNewTab",
+                  "type": "boolean",
+                  "title": "Open in new tab"
+                }
+              ],
+              "name": "link",
+              "type": "object"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Bold"
+            },
+            {
+              "value": "em",
+              "title": "Italic"
+            }
+          ]
+        },
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet"
+          },
+          {
+            "value": "number",
+            "title": "Numbered"
+          }
+        ],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h2",
+            "title": "Heading 2"
+          },
+          {
+            "value": "h3",
+            "title": "Heading 3"
+          },
+          {
+            "value": "h4",
+            "title": "Heading 4"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "of": [],
+        "type": "block"
+      }
+    ],
+    "name": "portableText",
+    "type": "array",
+    "title": "Rich Text"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Name of the architecture component or step.",
+        "name": "title",
+        "type": "string",
+        "title": "Step Title"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief explanation of what this component does.",
+        "name": "description",
+        "type": "text"
+      }
+    ],
+    "name": "architectureStep",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 80
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short name for this feature.",
+        "name": "title",
+        "type": "string",
+        "title": "Feature Title"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 500
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "What this feature does and why it matters.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Lucide icon name (e.g. BarChart3, MessageSquare, FileText). Must match an existing frontend icon.",
+        "name": "icon",
+        "type": "string",
+        "title": "Icon Identifier"
+      }
+    ],
+    "name": "projectFeature",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Upload the screenshot image.",
+        "name": "image",
+        "type": "image",
+        "title": "Screenshot Image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short label for this screenshot.",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief explanation of what this screenshot shows.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Accessible description for screen readers. Describe what is visible in the image.",
+        "name": "alt",
+        "type": "string",
+        "title": "Alt Text"
+      }
+    ],
+    "name": "projectScreenshot",
+    "type": "object",
+    "title": "Screenshot"
+  },
+  {
+    "fields": [
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 500
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The problem or constraint encountered.",
+        "name": "challenge",
+        "type": "text"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 500
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "How the challenge was addressed or resolved.",
+        "name": "decision",
+        "type": "text"
+      }
+    ],
+    "name": "projectChallenge",
+    "type": "object",
+    "title": "Challenge & Decision"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Category name (e.g. Frontend, Backend, AI, Cloud).",
+        "name": "label",
+        "type": "string",
+        "title": "Group Label"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "List of technologies in this group.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "items",
+        "type": "array",
+        "title": "Technologies"
+      }
+    ],
+    "name": "techGroup",
+    "type": "object",
+    "title": "Technology Group"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 80
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Your full name as displayed across the portfolio.",
+        "name": "name",
+        "type": "string",
+        "title": "Full Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short positioning line (e.g. 'Data Analytics · AI · Automation · PMO').",
+        "name": "headline",
+        "type": "string",
+        "title": "Professional Headline"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Hero tagline — the main statement visitors see first. Supports line breaks.",
+        "name": "tagline",
+        "type": "text"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 400
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief positioning statement explaining what you do and how you create value.",
+        "name": "summary",
+        "type": "text",
+        "title": "Short Summary"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Professional profile photograph.",
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Accessible description of the profile image.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "profileImage",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Current availability (e.g. 'Open to opportunities').",
+        "name": "availabilityStatus",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Whether to display the availability status publicly.",
+        "name": "showAvailability",
+        "type": "boolean",
+        "title": "Show Availability Badge"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Text for the main hero button (e.g. 'Explore My Work').",
+        "name": "primaryCtaLabel",
+        "type": "string",
+        "title": "Primary CTA Label"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Path or URL the primary button links to (e.g. '/projects').",
+        "name": "primaryCtaUrl",
+        "type": "string",
+        "title": "Primary CTA Destination"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Text for the secondary hero button (e.g. 'Download Resume').",
+        "name": "secondaryCtaLabel",
+        "type": "string",
+        "title": "Secondary CTA Label"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Path or URL the secondary button links to. Leave blank to use the resume file.",
+        "name": "secondaryCtaUrl",
+        "type": "string",
+        "title": "Secondary CTA Destination"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Production domain (e.g. https://divyanshsingh.com).",
+        "name": "siteUrl",
+        "type": "url",
+        "title": "Site URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 70
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Default page title for search engines (50–60 characters recommended).",
+        "name": "defaultSeoTitle",
+        "type": "string",
+        "title": "Default SEO Title"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Default meta description for pages without specific SEO (120–160 characters recommended).",
+        "name": "defaultSeoDescription",
+        "type": "text",
+        "title": "Default SEO Description"
+      },
+      {
+        "description": "Default Open Graph image for social sharing (1200×630 recommended).",
+        "name": "defaultOgImage",
+        "type": "image",
+        "title": "Default Social Sharing Image"
+      },
+      {
+        "options": {
+          "accept": ".pdf"
+        },
+        "description": "Upload your resume as a PDF file.",
+        "name": "resumeFile",
+        "type": "file",
+        "title": "Resume PDF"
+      },
+      {
+        "initialValue": "Download Resume",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Text shown on the resume download button.",
+        "name": "resumeButtonLabel",
+        "type": "string"
+      },
+      {
+        "initialValue": true,
+        "description": "Whether to display the resume download button publicly.",
+        "name": "showResumeCta",
+        "type": "boolean",
+        "title": "Show Resume Button"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Text displayed in the footer (e.g. positioning line). Leave blank for default.",
+        "name": "footerText",
+        "type": "string"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Small label above the heading (e.g. 'ABOUT ME').",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Section Eyebrow"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Main heading for the About section.",
+        "name": "heading",
+        "type": "string",
+        "title": "Section Heading"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 400
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief introduction shown at the top of the About page.",
+        "name": "shortIntro",
+        "type": "text",
+        "title": "Short Introduction"
+      },
+      {
+        "description": "Your complete professional story with rich text formatting.",
+        "name": "biography",
+        "type": "portableText",
+        "title": "Full Biography"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image used on the About page.",
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Accessible description of this image.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "profileImage",
+        "type": "image"
+      },
+      {
+        "description": "Key areas of professional focus (e.g. 'Data Analytics', 'AI Solutions').",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "focusAreas",
+        "type": "array",
+        "title": "Professional Focus Areas"
+      },
+      {
+        "description": "Notable career achievements or milestones.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "careerHighlights",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Your current location.",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Your current job title and organization.",
+        "name": "currentRole",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Total years of professional experience (if displayed).",
+        "name": "yearsOfExperience",
+        "type": "number",
+        "title": "Years of Experience"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether the About section appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Show About Section"
+      }
+    ],
+    "name": "about",
+    "type": "document",
+    "title": "About / Profile"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "WHAT I DO",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "capabilitiesEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "Core Capabilities",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "capabilitiesHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "capabilitiesDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "HOW I WORK",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "workMethodEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "From Problem to Practical Solution",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "workMethodHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "workMethodDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "FEATURED WORK",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "projectsEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "Things I've Built",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "projectsHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "projectsDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "EXPERIENCE",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "experienceEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "My Professional Journey",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "experienceHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "experienceDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "SKILLS",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "skillsEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "Tools I Use to Turn Ideas Into Solutions",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "skillsHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "skillsDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "BEYOND THE DAY-TO-DAY",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "achievementsEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "Learning, Innovation & Professional Growth",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "achievementsHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "initialValue": "Looking for someone who can bridge business and technology?",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 150
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "resumeCtaHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 400
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "resumeCtaDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "initialValue": "CONTACT",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "contactEyebrow",
+        "type": "string",
+        "title": "Eyebrow"
+      },
+      {
+        "initialValue": "Let's Connect",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "contactHeading",
+        "type": "string",
+        "title": "Heading"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "contactDescription",
+        "type": "text",
+        "title": "Description"
+      }
+    ],
+    "name": "homepageContent",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The name of the project.",
+        "name": "title",
+        "type": "string",
+        "title": "Project Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 80
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "URL-friendly identifier. Click 'Generate' to create from title.",
+        "name": "slug",
+        "type": "slug",
+        "title": "URL Slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short tagline shown below the title on project cards.",
+        "name": "subtitle",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 400
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short description shown on project cards and listings (2–3 sentences).",
+        "name": "description",
+        "type": "text",
+        "title": "Card Description"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Project categories (e.g. AI, Automation, Data Analytics).",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "category",
+        "type": "array",
+        "title": "Categories"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Main project image for cards and hero sections.",
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Describe what the cover image shows.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "coverImage",
+        "type": "image"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Technologies used in this project (shown as pills).",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Technology Stack"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Type of project (e.g. Prototype, Dashboard, Automation).",
+        "name": "projectType",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 80
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Your role in the project (e.g. Full-stack Developer, Designer).",
+        "name": "role",
+        "type": "string",
+        "title": "My Role"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Project duration (e.g. 'Jan 2024 – Mar 2024').",
+        "name": "timeline",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Completed",
+              "value": "completed"
+            },
+            {
+              "title": "In Progress",
+              "value": "in-progress"
+            },
+            {
+              "title": "Prototype",
+              "value": "prototype"
+            },
+            {
+              "title": "Archived",
+              "value": "archived"
+            }
+          ]
+        },
+        "initialValue": "completed",
+        "name": "status",
+        "type": "string",
+        "title": "Project Status"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to the live project or prototype.",
+        "name": "liveUrl",
+        "type": "url",
+        "title": "Live Demo URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to the source code repository.",
+        "name": "githubUrl",
+        "type": "url",
+        "title": "GitHub URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to project documentation, if applicable.",
+        "name": "documentationUrl",
+        "type": "url",
+        "title": "Documentation URL"
+      },
+      {
+        "rows": 5,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 2000
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Full overview paragraph for the case study page.",
+        "name": "overview",
+        "type": "text",
+        "title": "Project Overview"
+      },
+      {
+        "description": "List of business problems this project addresses. Each item is a separate point.",
+        "of": [
+          {
+            "rows": 3,
+            "type": "text"
+          }
+        ],
+        "name": "businessProblem",
+        "type": "array"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 1000
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The primary goal or objective of the project.",
+        "name": "objective",
+        "type": "text"
+      },
+      {
+        "description": "List of responsibilities and contributions. Each item is a separate bullet.",
+        "of": [
+          {
+            "rows": 2,
+            "type": "text"
+          }
+        ],
+        "name": "roleDetails",
+        "type": "array",
+        "title": "Role & Responsibilities"
+      },
+      {
+        "rows": 5,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 2000
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Description of the solution approach.",
+        "name": "solution",
+        "type": "text"
+      },
+      {
+        "description": "Architecture flow showing system components and their relationships.",
+        "of": [
+          {
+            "type": "architectureStep"
+          }
+        ],
+        "name": "architecture",
+        "type": "array",
+        "title": "Architecture Steps"
+      },
+      {
+        "description": "Main features of the project.",
+        "of": [
+          {
+            "type": "projectFeature"
+          }
+        ],
+        "name": "features",
+        "type": "array",
+        "title": "Key Features"
+      },
+      {
+        "description": "Project screenshots for the visual gallery. First image is displayed full-width.",
+        "of": [
+          {
+            "type": "projectScreenshot",
+            "title": "Screenshot"
+          }
+        ],
+        "name": "screenshots",
+        "type": "array"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Optional disclaimer about simplified or sanitized content.",
+        "name": "confidentialityNote",
+        "type": "text"
+      },
+      {
+        "description": "Detailed technology breakdown by category (e.g. AI, Frontend, Backend).",
+        "of": [
+          {
+            "type": "techGroup",
+            "title": "Technology Group"
+          }
+        ],
+        "name": "techGroups",
+        "type": "array",
+        "title": "Technology Groups"
+      },
+      {
+        "description": "Quantified outcomes and business impact statements.",
+        "of": [
+          {
+            "rows": 2,
+            "type": "text"
+          }
+        ],
+        "name": "businessValue",
+        "type": "array",
+        "title": "Business Value / Impact"
+      },
+      {
+        "description": "Key challenges faced and how they were resolved.",
+        "of": [
+          {
+            "type": "projectChallenge",
+            "title": "Challenge & Decision"
+          }
+        ],
+        "name": "challenges",
+        "type": "array",
+        "title": "Challenges & Decisions"
+      },
+      {
+        "description": "Key takeaways and learnings from the project.",
+        "of": [
+          {
+            "rows": 2,
+            "type": "text"
+          }
+        ],
+        "name": "learnings",
+        "type": "array",
+        "title": "Lessons Learned"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 70
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Custom page title for search engines. Falls back to project title if blank.",
+        "name": "seoTitle",
+        "type": "string",
+        "title": "SEO Title"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Custom meta description. Falls back to card description if blank.",
+        "name": "seoDescription",
+        "type": "text",
+        "title": "SEO Description"
+      },
+      {
+        "description": "Custom Open Graph image for social sharing. Falls back to cover image.",
+        "name": "seoImage",
+        "type": "image",
+        "title": "SEO Image"
+      },
+      {
+        "initialValue": false,
+        "description": "Featured projects appear on the homepage.",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured Project"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this project appears publicly. Unpublish or hide to remove from the site.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible on Portfolio"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls the order projects appear in listings. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      }
+    ],
+    "name": "project",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Company or organization name.",
+        "name": "company",
+        "type": "string",
+        "title": "Organization"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Your job title at this organization.",
+        "name": "role",
+        "type": "string",
+        "title": "Role / Title"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Full-time",
+              "value": "full-time"
+            },
+            {
+              "title": "Part-time",
+              "value": "part-time"
+            },
+            {
+              "title": "Contract",
+              "value": "contract"
+            },
+            {
+              "title": "Internship",
+              "value": "internship"
+            },
+            {
+              "title": "Fellowship",
+              "value": "fellowship"
+            },
+            {
+              "title": "Freelance",
+              "value": "freelance"
+            }
+          ]
+        },
+        "description": "Type of employment.",
+        "name": "employmentType",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Work location (e.g. 'Manesar, India').",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "options": {
+          "dateFormat": "MMMM YYYY"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "When you started this role.",
+        "name": "startDate",
+        "type": "date"
+      },
+      {
+        "options": {
+          "dateFormat": "MMMM YYYY"
+        },
+        "description": "When you left this role. Leave blank if currently working here.",
+        "name": "endDate",
+        "type": "date"
+      },
+      {
+        "initialValue": false,
+        "description": "Check if this is your current role.",
+        "name": "isCurrent",
+        "type": "boolean",
+        "title": "Currently Working Here"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "One-line summary of your role and impact.",
+        "name": "summary",
+        "type": "text",
+        "title": "Short Summary"
+      },
+      {
+        "description": "Main responsibilities in this role.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "responsibilities",
+        "type": "array",
+        "title": "Key Responsibilities"
+      },
+      {
+        "description": "Notable achievements or accomplishments.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "achievements",
+        "type": "array"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "description": "Tools and technologies used in this role.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Technologies & Tools"
+      },
+      {
+        "description": "Logo of the organization (optional).",
+        "fields": [
+          {
+            "description": "Accessible description of the logo.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "companyLogo",
+        "type": "image",
+        "title": "Organization Logo"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls order in listings. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      },
+      {
+        "initialValue": false,
+        "description": "Featured experiences may appear on the homepage.",
+        "name": "featured",
+        "type": "boolean"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this entry appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible"
+      }
+    ],
+    "name": "experience",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Category name (e.g. 'Data & Analytics', 'AI', 'Automation').",
+        "name": "name",
+        "type": "string",
+        "title": "Group Name"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief description of this skill category.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Individual skills within this group.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      },
+                      {
+                        "flag": "max",
+                        "constraint": 60
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string",
+                "title": "Skill Name"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Beginner",
+                      "value": "beginner"
+                    },
+                    {
+                      "title": "Intermediate",
+                      "value": "intermediate"
+                    },
+                    {
+                      "title": "Advanced",
+                      "value": "advanced"
+                    },
+                    {
+                      "title": "Expert",
+                      "value": "expert"
+                    }
+                  ]
+                },
+                "name": "level",
+                "type": "string",
+                "title": "Proficiency Level"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "skills",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Lucide icon name for this group (e.g. BarChart3, Brain, Workflow).",
+        "name": "icon",
+        "type": "string",
+        "title": "Icon Identifier"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls order on the Skills page. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this skill group appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible"
+      }
+    ],
+    "name": "skillGroup",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 150
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Full name of the certification or credential.",
+        "name": "name",
+        "type": "string",
+        "title": "Certification Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Who issued this certification (e.g. Google, McKinsey).",
+        "name": "issuer",
+        "type": "string",
+        "title": "Issuing Organization"
+      },
+      {
+        "options": {
+          "dateFormat": "MMMM YYYY"
+        },
+        "description": "When this certification was issued.",
+        "name": "issueDate",
+        "type": "date"
+      },
+      {
+        "options": {
+          "dateFormat": "MMMM YYYY"
+        },
+        "description": "When this certification expires (if applicable).",
+        "name": "expiryDate",
+        "type": "date"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Unique credential identifier.",
+        "name": "credentialId",
+        "type": "string",
+        "title": "Credential ID"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Link to verify the credential online.",
+        "name": "credentialUrl",
+        "type": "url",
+        "title": "Verification URL"
+      },
+      {
+        "description": "Image of the certificate (optional).",
+        "fields": [
+          {
+            "description": "Accessible description of the certificate image.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "certificateImage",
+        "type": "image"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 500
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief description of what this certification covers.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "description": "Key skills this certification validates.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "skillsDemonstrated",
+        "type": "array"
+      },
+      {
+        "initialValue": false,
+        "description": "Featured certifications may appear more prominently.",
+        "name": "featured",
+        "type": "boolean"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls order in listings. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this certification appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible"
+      }
+    ],
+    "name": "certification",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Name of the achievement or recognition.",
+        "name": "title",
+        "type": "string",
+        "title": "Achievement Title"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 500
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Brief description of the achievement.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 20
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "When this was achieved (e.g. 'Jul 2026', '2022').",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Category of achievement (e.g. Professional Development, Innovation, Technical).",
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Lucide icon name (e.g. GraduationCap, Lightbulb, BarChart3).",
+        "name": "icon",
+        "type": "string",
+        "title": "Icon Identifier"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls order in listings. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this achievement appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible"
+      }
+    ],
+    "name": "achievement",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Email",
+              "value": "email"
+            },
+            {
+              "title": "LinkedIn",
+              "value": "linkedin"
+            },
+            {
+              "title": "GitHub",
+              "value": "github"
+            },
+            {
+              "title": "Twitter / X",
+              "value": "twitter"
+            },
+            {
+              "title": "Website",
+              "value": "website"
+            },
+            {
+              "title": "Phone",
+              "value": "phone"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "email",
+                  "linkedin",
+                  "github",
+                  "twitter",
+                  "website",
+                  "phone",
+                  "other"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Type of contact method.",
+        "name": "type",
+        "type": "string",
+        "title": "Contact Type"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 50
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Label shown to visitors (e.g. 'LinkedIn', 'Email').",
+        "name": "label",
+        "type": "string",
+        "title": "Display Label"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "What visitors see (e.g. email address, username). Not required for all types.",
+        "name": "value",
+        "type": "string",
+        "title": "Display Value"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Full URL or email address. For email, just the address (mailto: is added automatically).",
+        "name": "url",
+        "type": "string",
+        "title": "Destination URL"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 30
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Lucide icon name (e.g. linkedin, github, mail). Must match an existing frontend icon.",
+        "name": "icon",
+        "type": "string",
+        "title": "Icon Identifier"
+      },
+      {
+        "initialValue": false,
+        "description": "Mark as preferred to highlight this method.",
+        "name": "isPreferred",
+        "type": "boolean",
+        "title": "Preferred Contact Method"
+      },
+      {
+        "initialValue": 0,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Controls order in listings. Lower numbers appear first.",
+        "name": "displayOrder",
+        "type": "number"
+      },
+      {
+        "initialValue": true,
+        "description": "Controls whether this contact method appears publicly.",
+        "name": "isVisible",
+        "type": "boolean",
+        "title": "Visible"
+      }
+    ],
+    "name": "contactMethod",
+    "type": "document"
+  }
+]
