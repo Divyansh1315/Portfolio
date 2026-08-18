@@ -34,52 +34,6 @@ export const fadeUp = {
   },
 } as const;
 
-/** Fade-in without vertical movement */
-export const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: duration.base, ease: ease.out },
-  },
-} as const;
-
-/** Scale entrance for visual elements */
-export const scaleIn = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: duration.slow, ease: ease.out },
-  },
-} as const;
-
-/** Stagger container — children animate in sequence */
-export const staggerContainer = (delay = stagger.base) => ({
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: delay },
-  },
-});
-
-/**
- * Returns reduced-motion-safe variants.
- * When reduced motion is preferred, strips transforms and uses instant opacity.
- */
-export function getReducedMotionVariants(variants: {
-  hidden: Record<string, unknown>;
-  visible: Record<string, unknown>;
-}) {
-  return {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.01 },
-    },
-    // Keep originals accessible for runtime checks
-    _original: variants,
-  };
-}
-
 /** Viewport trigger settings for whileInView */
 export const viewport = {
   once: true,

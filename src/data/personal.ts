@@ -1,4 +1,4 @@
-import { PersonalInfo, SocialLink } from "@/types/portfolio";
+import { PersonalInfo } from "@/types/portfolio";
 
 export const personalInfo: PersonalInfo = {
   name: "Divyansh Singh",
@@ -12,21 +12,3 @@ export const personalInfo: PersonalInfo = {
   github: "https://github.com/Divyansh1315",
   resumePath: "/resume/Resume_Divyansh.pdf",
 };
-
-export const socialLinks: SocialLink[] = [
-  {
-    platform: "LinkedIn",
-    url: "https://www.linkedin.com/in/divyansh-singh-25897a179/",
-    icon: "linkedin",
-  },
-  {
-    platform: "GitHub",
-    url: "https://github.com/Divyansh1315",
-    icon: "github",
-  },
-  {
-    platform: "Email",
-    url: "divyanshsingh372@gmail.com",
-    icon: "mail",
-  },
-];

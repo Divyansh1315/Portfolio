@@ -15,12 +15,6 @@ export interface NavigationItem {
   external?: boolean;
 }
 
-export interface SocialLink {
-  platform: string;
-  url: string;
-  icon: string;
-}
-
 export interface ProjectFeature {
   title: string;
   description: string;
@@ -79,20 +73,6 @@ export interface Project {
   caseStudy?: ProjectCaseStudy;
 }
 
-export interface Experience {
-  id: string;
-  company: string;
-  role: string;
-  startDate?: string;
-  endDate?: string;
-  current?: boolean;
-  location?: string;
-  summary?: string;
-  description: string;
-  highlights: string[];
-  technologies: string[];
-}
-
 export interface SkillCategory {
   id: string;
   name: string;
@@ -127,16 +107,6 @@ export interface WorkMethodStep {
   description: string;
 }
 
-export interface Education {
-  id: string;
-  institution: string;
-  qualification: string;
-  field?: string;
-  startDate?: string;
-  endDate?: string;
-  location?: string;
-}
-
 export interface Certification {
   id: string;
   name: string;
@@ -152,9 +122,3 @@ export interface SkillUsage {
   context: string;
 }
 
-export interface ExperienceTheme {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-}
