@@ -54,7 +54,7 @@ export function SkillsGrid({ categories }: SkillsGridProps) {
               {/* Header */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
-                  <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                  <Icon className="h-5 w-5" style={{ color: '#3b82f6' }} aria-hidden="true" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">
                   {category.name}

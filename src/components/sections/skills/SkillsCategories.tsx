@@ -82,7 +82,7 @@ export function SkillsCategories({ skillGroups }: SkillsCategoriesProps) {
                     <div
                       className={`inline-flex items-center justify-center w-10 h-10 rounded-lg border ${accent}`}
                     >
-                      <Icon className="h-5 w-5" aria-hidden="true" />
+                      <Icon className="h-5 w-5" style={{ color: 'currentColor' }} aria-hidden="true" />
                     </div>
                     <h3 className="text-base font-semibold text-foreground">
                       {category.name}
