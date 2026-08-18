@@ -3,15 +3,16 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
-import { BarChart3, Brain, Workflow, Code2, Briefcase } from "lucide-react";
+import { BarChart3, BrainCircuit, Workflow, Code2, BriefcaseBusiness } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { SanitySkillGroup } from "@/sanity/lib/types";
 
-const categoryIcons: Record<string, React.ReactNode> = {
-  "Data & Analytics": <BarChart3 className="h-5 w-5" />,
-  AI: <Brain className="h-5 w-5" />,
-  Automation: <Workflow className="h-5 w-5" />,
-  Development: <Code2 className="h-5 w-5" />,
-  "PMO & Business": <Briefcase className="h-5 w-5" />,
+const categoryIconMap: Record<string, LucideIcon> = {
+  "Data & Analytics": BarChart3,
+  "AI": BrainCircuit,
+  "Automation": Workflow,
+  "Development": Code2,
+  "PMO & Business": BriefcaseBusiness,
 };
 
 const categoryAccents: Record<string, string> = {
@@ -53,9 +54,10 @@ export function SkillsCategories({ skillGroups }: SkillsCategoriesProps) {
                   <div
                     className={`inline-flex items-center justify-center w-10 h-10 rounded-lg border ${categoryAccents[category.name] ?? "text-primary border-primary/30 bg-primary/10"}`}
                   >
-                    {categoryIcons[category.name] ?? (
-                      <Code2 className="h-5 w-5" />
-                    )}
+                    {(() => {
+                      const Icon = categoryIconMap[category.name] ?? Code2;
+                      return <Icon className="h-5 w-5" aria-hidden="true" />;
+                    })()}
                   </div>
                   <h3 className="text-base font-semibold text-foreground">
                     {category.name}

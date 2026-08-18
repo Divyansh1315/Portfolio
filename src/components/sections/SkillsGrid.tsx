@@ -3,14 +3,15 @@
 import { SkillCategory } from "@/types/portfolio";
 import { TechPill } from "@/components/ui/TechPill";
 import { StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
-import { BarChart3, Brain, Workflow, Code2, Briefcase } from "lucide-react";
+import { BarChart3, BrainCircuit, Workflow, Code2, BriefcaseBusiness, Circle } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const categoryIcons: Record<string, React.ReactNode> = {
-  "data-analytics": <BarChart3 className="h-5 w-5" />,
-  "ai": <Brain className="h-5 w-5" />,
-  "automation": <Workflow className="h-5 w-5" />,
-  "development": <Code2 className="h-5 w-5" />,
-  "pmo-business": <Briefcase className="h-5 w-5" />,
+const categoryIconMap: Record<string, LucideIcon> = {
+  "Data & Analytics": BarChart3,
+  "AI": BrainCircuit,
+  "Automation": Workflow,
+  "Development": Code2,
+  "PMO & Business": BriefcaseBusiness,
 };
 
 interface SkillsGridProps {
@@ -29,7 +30,10 @@ export function SkillsGrid({ categories }: SkillsGridProps) {
             {/* Header */}
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary">
-                {categoryIcons[category.id] ?? null}
+                {(() => {
+                  const Icon = categoryIconMap[category.name] ?? Circle;
+                  return <Icon className="h-5 w-5" aria-hidden="true" />;
+                })()}
               </div>
               <h3 className="text-base font-semibold text-foreground">
                 {category.name}
