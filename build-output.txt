@@ -1,0 +1,56 @@
+   ▲ Next.js 15.5.23
+   - Environments: .env.local, .env.production
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 20.8s
+   Linting and checking validity of types ...
+
+./src/components/sections/experience/ExperienceCredentials.tsx
+36:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/19) ...
+   Generating static pages (4/19) 
+   Generating static pages (9/19) 
+   Generating static pages (14/19) 
+ ✓ Generating static pages (19/19)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                     Size  First Load JS  Revalidate  Expire
+┌ ○ /                                          12 kB         189 kB          1m      1y
+├ ○ /_not-found                                151 B         103 kB          1m      1y
+├ ○ /about                                   4.78 kB         124 kB          1m      1y
+├ ƒ /api/draft                                 151 B         103 kB
+├ ƒ /api/revalidate                            151 B         103 kB
+├ ○ /apple-icon                                151 B         103 kB
+├ ○ /contact                                 5.37 kB         177 kB          1m      1y
+├ ○ /experience                              7.69 kB         182 kB          1m      1y
+├ ○ /icon                                      151 B         103 kB
+├ ƒ /opengraph-image                           151 B         103 kB
+├ ○ /projects                                3.72 kB         172 kB          1m      1y
+├ ● /projects/[slug]                         9.79 kB         186 kB          1m      1y
+├   ├ /projects/factoryassist-ai                                             1m      1y
+├   ├ /projects/gemba-observation-dashboard                                  1m      1y
+├   ├ /projects/github-ai-notion-automation                                  1m      1y
+├   └ /projects/mom-follow-up-automation                                     1m      1y
+├ ○ /robots.txt                                151 B         103 kB
+├ ○ /sitemap.xml                               151 B         103 kB          1m      1y
+├ ○ /skills                                  6.81 kB         178 kB          1m      1y
+└ ƒ /studio/[[...tool]]                       1.5 MB        1.66 MB
++ First Load JS shared by all                 103 kB
+  ├ chunks/1255-72e1643fc28e6b63.js          45.9 kB
+  ├ chunks/4bd1b696-182b6b13bdad92e3.js      54.2 kB
+  └ other shared chunks (total)              2.62 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+STDERR:
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+
+EXIT:0
