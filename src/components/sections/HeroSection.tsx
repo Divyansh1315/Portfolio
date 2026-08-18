@@ -6,7 +6,6 @@ import { ArrowRight, Download } from "lucide-react";
 import { MotionDiv } from "@/components/ui/ClientMotion";
 import { ease } from "@/lib/motion";
 import type { SanitySiteSettings } from "@/sanity/lib/types";
-import { ValueProcessPanel } from "./hero/ValueProcessPanel";
 
 interface HeroSectionProps {
   settings: SanitySiteSettings | null;
@@ -22,9 +21,9 @@ export function HeroSection({ settings }: HeroSectionProps) {
       <HeroBackground />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="max-w-3xl">
           {/* Left Column — Content */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
+          <div className="flex flex-col gap-5">
             {/* Positioning Badge */}
             <MotionDiv
               initial={{ opacity: 0, y: 14 }}
@@ -106,28 +105,6 @@ export function HeroSection({ settings }: HeroSectionProps) {
                 Let&apos;s Connect
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
-            </MotionDiv>
-          </div>
-
-          {/* Right Column — Value Process Panel */}
-          <div className="lg:col-span-5 hidden lg:block">
-            <MotionDiv
-              initial={{ opacity: 0, x: 24, scale: 0.985 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.65, delay: 0.35, ease: ease.out }}
-            >
-              <ValueProcessPanel />
-            </MotionDiv>
-          </div>
-
-          {/* Mobile Process Panel */}
-          <div className="lg:hidden">
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5, ease: ease.out }}
-            >
-              <ValueProcessPanel />
             </MotionDiv>
           </div>
         </div>
