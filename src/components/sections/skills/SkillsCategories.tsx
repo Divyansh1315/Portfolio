@@ -4,26 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
 import { BarChart3, BrainCircuit, Workflow, Code2, BriefcaseBusiness } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import type { SanitySkillGroup } from "@/sanity/lib/types";
-
-/**
- * Icon map keyed by both category name AND slug-based ID.
- */
-const categoryIconMap: Record<string, LucideIcon> = {
-  // By display name
-  "Data & Analytics": BarChart3,
-  "AI": BrainCircuit,
-  "Automation": Workflow,
-  "Development": Code2,
-  "PMO & Business": BriefcaseBusiness,
-  // By slug (Sanity _id is "skillGroup-<slug>")
-  "data-analytics": BarChart3,
-  "ai": BrainCircuit,
-  "automation": Workflow,
-  "development": Code2,
-  "pmo-business": BriefcaseBusiness,
-};
 
 const categoryAccents: Record<string, string> = {
   "Data & Analytics": "text-blue-400 border-blue-500/30 bg-blue-500/10",
@@ -33,19 +14,29 @@ const categoryAccents: Record<string, string> = {
   "PMO & Business": "text-amber-400 border-amber-500/30 bg-amber-500/10",
 };
 
-function resolveIcon(category: SanitySkillGroup): LucideIcon {
-  // Try name first
-  if (categoryIconMap[category.name]) return categoryIconMap[category.name];
-  // Try slug extracted from Sanity ID (e.g. "skillGroup-data-analytics" → "data-analytics")
-  const slug = category._id.replace(/^skillGroup-/, "");
-  if (categoryIconMap[slug]) return categoryIconMap[slug];
-  // Fallback
-  return Code2;
-}
+/**
+ * Returns the appropriate icon JSX for a skill category.
+ */
+function CategoryIcon({ name, id }: { name: string; id: string }) {
+  const slug = id.replace(/^skillGroup-/, "");
+  const cls = "h-5 w-5";
 
-function resolveAccent(category: SanitySkillGroup): string {
-  if (categoryAccents[category.name]) return categoryAccents[category.name];
-  return "text-primary border-primary/30 bg-primary/10";
+  if (name === "Data & Analytics" || slug === "data-analytics") {
+    return <BarChart3 className={cls} aria-hidden="true" />;
+  }
+  if (name === "AI" || slug === "ai") {
+    return <BrainCircuit className={cls} aria-hidden="true" />;
+  }
+  if (name === "Automation" || slug === "automation") {
+    return <Workflow className={cls} aria-hidden="true" />;
+  }
+  if (name === "Development" || slug === "development") {
+    return <Code2 className={cls} aria-hidden="true" />;
+  }
+  if (name === "PMO & Business" || slug === "pmo-business") {
+    return <BriefcaseBusiness className={cls} aria-hidden="true" />;
+  }
+  return <Code2 className={cls} aria-hidden="true" />;
 }
 
 interface SkillsCategoriesProps {
@@ -72,8 +63,7 @@ export function SkillsCategories({ skillGroups }: SkillsCategoriesProps) {
           staggerDelay={0.08}
         >
           {skillGroups.map((category) => {
-            const Icon = resolveIcon(category);
-            const accent = resolveAccent(category);
+            const accent = categoryAccents[category.name] ?? "text-primary border-primary/30 bg-primary/10";
             return (
               <StaggerItem key={category._id}>
                 <div className="flex flex-col h-full p-6 rounded-xl border border-border bg-card hover:border-muted transition-all duration-300">
@@ -82,7 +72,7 @@ export function SkillsCategories({ skillGroups }: SkillsCategoriesProps) {
                     <div
                       className={`inline-flex items-center justify-center w-10 h-10 rounded-lg border ${accent}`}
                     >
-                      <Icon className="h-5 w-5" style={{ color: 'currentColor' }} aria-hidden="true" />
+                      <CategoryIcon name={category.name} id={category._id} />
                     </div>
                     <h3 className="text-base font-semibold text-foreground">
                       {category.name}
