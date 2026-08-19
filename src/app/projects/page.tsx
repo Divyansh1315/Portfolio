@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
   return (
     <div className="pt-24">
       {/* ─── Hero ─────────────────────────────────────────────────────────── */}
-      <Section>
+      <div className="pb-8">
         <Container>
           <SectionHeading
             eyebrow="Projects"
@@ -41,7 +41,7 @@ export default async function ProjectsPage() {
             description="Selected work across analytics, AI, automation, and business technology."
           />
         </Container>
-      </Section>
+      </div>
 
       {/* ─── Featured Projects ────────────────────────────────────────────── */}
       {featuredProjects.length > 0 && (
