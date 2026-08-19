@@ -89,6 +89,7 @@ export const allProjectsQuery = groq`
     category,
     technologies,
     featured,
+    projectType,
     coverImage { asset->{_id, url}, alt },
     liveUrl,
     githubUrl,
@@ -106,9 +107,28 @@ export const featuredProjectsQuery = groq`
     category,
     technologies,
     featured,
+    projectType,
     coverImage { asset->{_id, url}, alt },
     liveUrl,
     githubUrl
+  }
+`;
+
+export const projectsByTypeQuery = groq`
+  *[_type == "project" && isVisible == true && projectType == $projectType] | order(displayOrder asc) {
+    _id,
+    title,
+    slug,
+    subtitle,
+    description,
+    category,
+    technologies,
+    featured,
+    projectType,
+    coverImage { asset->{_id, url}, alt },
+    liveUrl,
+    githubUrl,
+    displayOrder
   }
 `;
 

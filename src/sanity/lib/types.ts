@@ -117,6 +117,9 @@ export interface SanityProjectChallenge {
   decision: string;
 }
 
+/** Controlled project type categories for portfolio grouping. */
+export type SanityProjectType = "sql" | "power-bi" | "excel" | "ai" | "automation";
+
 export interface SanityProject {
   _id: string;
   title: string;
@@ -130,7 +133,7 @@ export interface SanityProject {
   liveUrl?: string;
   githubUrl?: string;
   documentationUrl?: string;
-  projectType?: string;
+  projectType?: SanityProjectType;
   role?: string;
   timeline?: string;
   status?: string;

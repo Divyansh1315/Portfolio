@@ -10,6 +10,7 @@ import {
   aboutQuery,
   allProjectsQuery,
   featuredProjectsQuery,
+  projectsByTypeQuery,
   projectBySlugQuery,
   projectSlugsQuery,
   experienceQuery,
@@ -74,6 +75,16 @@ export async function getAllProjects(): Promise<SanityProject[]> {
 
 export async function getFeaturedProjects(): Promise<SanityProject[]> {
   return sanityFetch<SanityProject[]>(featuredProjectsQuery, {}, ["projects"]);
+}
+
+export async function getProjectsByType(
+  projectType: string
+): Promise<SanityProject[]> {
+  return sanityFetch<SanityProject[]>(
+    projectsByTypeQuery,
+    { projectType },
+    ["projects"]
+  );
 }
 
 export async function getProjectBySlug(

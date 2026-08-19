@@ -102,8 +102,19 @@ export const project = defineType({
       title: "Project Type",
       type: "string",
       group: "overview",
-      description: "Type of project (e.g. Prototype, Dashboard, Automation).",
-      validation: (Rule) => Rule.max(60),
+      description:
+        "Category used to group this project on the portfolio (SQL, Power BI, Excel, AI, Automation).",
+      options: {
+        list: [
+          { title: "SQL", value: "sql" },
+          { title: "Power BI", value: "power-bi" },
+          { title: "Excel", value: "excel" },
+          { title: "AI", value: "ai" },
+          { title: "Automation", value: "automation" },
+        ],
+        layout: "radio",
+      },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "role",
