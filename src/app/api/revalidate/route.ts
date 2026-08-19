@@ -3,7 +3,7 @@
  * Called by Sanity when content is published.
  * Validates the secret before revalidating affected paths/tags.
  */
-import { revalidateTag } from "next/cache";
+import { revalidateTag, revalidatePath } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 
@@ -35,8 +35,10 @@ export async function POST(req: NextRequest) {
         break;
       case "project":
         revalidateTag("projects");
+        revalidatePath("/projects");
         if (body.slug?.current) {
           revalidateTag(`project-${body.slug.current}`);
+          revalidatePath(`/projects/${body.slug.current}`);
         }
         break;
       case "experience":
