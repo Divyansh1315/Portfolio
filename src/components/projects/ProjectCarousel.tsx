@@ -17,7 +17,10 @@ interface CarouselProject {
   category: string[];
   technologies: string[];
   projectType?: string;
-  coverImage: { asset?: { url: string }; alt?: string } | null;
+  coverImage: {
+    asset?: { _id?: string; url: string } | null;
+    alt?: string;
+  } | null;
   liveUrl?: string;
   githubUrl?: string;
 }

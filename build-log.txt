@@ -1,0 +1,20 @@
+﻿   Γû▓ Next.js 15.5.23
+   - Environments: .env.local, .env.production
+
+   Creating an optimized production build ...
+node.exe : Failed to compile.
+At line:1 char:42
++ ... es\nodejs"; & node 
+"node_modules\next\dist\bin\next" build 2>&1 | Out ...
++                 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to  
+   compile.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Error: ENOENT: no such file or directory, open 'D:\DV\Po
+rtfolio\.next\server\app\_not-found\page.js.nft.json'
+
+
+> Build failed because of webpack errors
