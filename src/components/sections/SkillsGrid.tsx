@@ -11,25 +11,24 @@ import { BarChart3, BrainCircuit, Workflow, Code2, BriefcaseBusiness, Circle } f
  */
 function CategoryIcon({ name, id }: { name: string; id: string }) {
   const slug = id.replace(/^skillGroup-/, "");
-  const cls = "h-5 w-5";
-  const style = { color: "#3b82f6" };
+  const cls = "h-5 w-5 text-primary";
 
   if (name === "Data & Analytics" || slug === "data-analytics") {
-    return <BarChart3 className={cls} style={style} aria-hidden="true" />;
+    return <BarChart3 className={cls} aria-hidden="true" />;
   }
   if (name === "AI" || slug === "ai") {
-    return <BrainCircuit className={cls} style={style} aria-hidden="true" />;
+    return <BrainCircuit className={cls} aria-hidden="true" />;
   }
   if (name === "Automation" || slug === "automation") {
-    return <Workflow className={cls} style={style} aria-hidden="true" />;
+    return <Workflow className={cls} aria-hidden="true" />;
   }
   if (name === "Development" || slug === "development") {
-    return <Code2 className={cls} style={style} aria-hidden="true" />;
+    return <Code2 className={cls} aria-hidden="true" />;
   }
   if (name === "PMO & Business" || slug === "pmo-business") {
-    return <BriefcaseBusiness className={cls} style={style} aria-hidden="true" />;
+    return <BriefcaseBusiness className={cls} aria-hidden="true" />;
   }
-  return <Circle className={cls} style={style} aria-hidden="true" />;
+  return <Circle className={cls} aria-hidden="true" />;
 }
 
 interface SkillsGridProps {

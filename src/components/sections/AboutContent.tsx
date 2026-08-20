@@ -37,11 +37,11 @@ export function AboutContent() {
         {/* Conceptual Visual */}
         <div className="flex flex-col gap-0" aria-hidden="true">
           {[
-            { label: "Business Context", color: "border-blue-500/30 text-blue-400" },
-            { label: "Data & Process", color: "border-indigo-500/30 text-indigo-400" },
-            { label: "Solution Design", color: "border-violet-500/30 text-violet-400" },
-            { label: "Technology", color: "border-purple-500/30 text-purple-400" },
-            { label: "Business Value", color: "border-emerald-500/30 text-emerald-400" },
+            { label: "Business Context", color: "border-blue-500/30 text-blue-600 dark:text-blue-400" },
+            { label: "Data & Process", color: "border-indigo-500/30 text-indigo-600 dark:text-indigo-400" },
+            { label: "Solution Design", color: "border-violet-500/30 text-violet-600 dark:text-violet-400" },
+            { label: "Technology", color: "border-purple-500/30 text-purple-600 dark:text-purple-400" },
+            { label: "Business Value", color: "border-emerald-500/30 text-emerald-600 dark:text-emerald-400" },
           ].map((item, i, arr) => (
             <div key={item.label} className="flex items-center gap-3">
               <div className="flex flex-col items-center">

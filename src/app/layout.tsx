@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { StructuredData } from "@/components/StructuredData";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { getSiteSettings } from "@/sanity/lib/fetch";
 import "./globals.css";
 
@@ -87,12 +88,14 @@ export default async function RootLayout({
     : undefined;
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen font-sans antialiased">
-        <StructuredData />
-        <Navbar name={settings?.name} resumeUrl={resumeUrl} />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <StructuredData />
+          <Navbar name={settings?.name} resumeUrl={resumeUrl} />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

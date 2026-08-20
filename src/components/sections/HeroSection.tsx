@@ -104,11 +104,11 @@ export function HeroSection({ settings }: HeroSectionProps) {
 /** Premium visual showing the business-to-impact process flow */
 function ProcessVisual() {
   const steps = [
-    { label: "BUSINESS", sublabel: "Understanding", gradient: "from-blue-500/20 to-blue-600/5", borderColor: "border-blue-500/40", textColor: "text-blue-400", glowColor: "shadow-blue-500/10" },
-    { label: "DATA", sublabel: "Analysis", gradient: "from-indigo-500/20 to-indigo-600/5", borderColor: "border-indigo-500/40", textColor: "text-indigo-400", glowColor: "shadow-indigo-500/10" },
-    { label: "AUTOMATION", sublabel: "Efficiency", gradient: "from-violet-500/20 to-violet-600/5", borderColor: "border-violet-500/40", textColor: "text-violet-400", glowColor: "shadow-violet-500/10" },
-    { label: "AI", sublabel: "Intelligence", gradient: "from-purple-500/20 to-purple-600/5", borderColor: "border-purple-500/40", textColor: "text-purple-400", glowColor: "shadow-purple-500/10" },
-    { label: "IMPACT", sublabel: "Results", gradient: "from-emerald-500/20 to-emerald-600/5", borderColor: "border-emerald-500/40", textColor: "text-emerald-400", glowColor: "shadow-emerald-500/10" },
+    { label: "BUSINESS", sublabel: "Understanding", gradient: "from-blue-500/20 to-blue-600/5", borderColor: "border-blue-600/30 dark:border-blue-500/40", textColor: "text-blue-600 dark:text-blue-400", glowColor: "shadow-blue-500/10" },
+    { label: "DATA", sublabel: "Analysis", gradient: "from-indigo-500/20 to-indigo-600/5", borderColor: "border-indigo-600/30 dark:border-indigo-500/40", textColor: "text-indigo-600 dark:text-indigo-400", glowColor: "shadow-indigo-500/10" },
+    { label: "AUTOMATION", sublabel: "Efficiency", gradient: "from-violet-500/20 to-violet-600/5", borderColor: "border-violet-600/30 dark:border-violet-500/40", textColor: "text-violet-600 dark:text-violet-400", glowColor: "shadow-violet-500/10" },
+    { label: "AI", sublabel: "Intelligence", gradient: "from-purple-500/20 to-purple-600/5", borderColor: "border-purple-600/30 dark:border-purple-500/40", textColor: "text-purple-600 dark:text-purple-400", glowColor: "shadow-purple-500/10" },
+    { label: "IMPACT", sublabel: "Results", gradient: "from-emerald-500/20 to-emerald-600/5", borderColor: "border-emerald-600/30 dark:border-emerald-500/40", textColor: "text-emerald-600 dark:text-emerald-400", glowColor: "shadow-emerald-500/10" },
   ];
 
   return (

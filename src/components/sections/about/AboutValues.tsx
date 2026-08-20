@@ -13,7 +13,7 @@ const valueAreas = [
     description:
       "Understanding process, stakeholders, governance, and operational needs before selecting a technical solution.",
     icon: <Briefcase className="h-5 w-5" />,
-    accent: "text-blue-400 border-blue-500/30 bg-blue-500/10",
+    accent: "text-blue-600 dark:text-blue-400 border-blue-500/30 bg-blue-500/10",
   },
   {
     id: "data-insights",
@@ -21,7 +21,7 @@ const valueAreas = [
     description:
       "Structuring data and building analytical views that improve visibility and decision-making.",
     icon: <BarChart3 className="h-5 w-5" />,
-    accent: "text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
+    accent: "text-indigo-600 dark:text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
   },
   {
     id: "automation",
@@ -29,7 +29,7 @@ const valueAreas = [
     description:
       "Reducing repetitive effort through practical workflows and rule-based process automation.",
     icon: <Workflow className="h-5 w-5" />,
-    accent: "text-violet-400 border-violet-500/30 bg-violet-500/10",
+    accent: "text-violet-600 dark:text-violet-400 border-violet-500/30 bg-violet-500/10",
   },
   {
     id: "applied-ai",
@@ -37,7 +37,7 @@ const valueAreas = [
     description:
       "Exploring how generative AI, RAG, and intelligent assistants can augment real business workflows.",
     icon: <Brain className="h-5 w-5" />,
-    accent: "text-purple-400 border-purple-500/30 bg-purple-500/10",
+    accent: "text-purple-600 dark:text-purple-400 border-purple-500/30 bg-purple-500/10",
   },
 ];
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { mainNavigation } from "@/data/navigation";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { FileText } from "lucide-react";
@@ -63,18 +64,21 @@ export function Navbar({ name, resumeUrl }: NavbarProps) {
               ))}
             </ul>
 
-            {resumeUrl && (
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-surface border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface-secondary hover:border-muted transition-all"
-                aria-label="Download Resume"
-              >
-                <FileText className="h-4 w-4" />
-                Resume
-              </a>
-            )}
+            <div className="flex items-center gap-3">
+              {resumeUrl && (
+                <a
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-surface border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface-secondary hover:border-muted transition-all"
+                  aria-label="Download Resume"
+                >
+                  <FileText className="h-4 w-4" />
+                  Resume
+                </a>
+              )}
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Navigation */}

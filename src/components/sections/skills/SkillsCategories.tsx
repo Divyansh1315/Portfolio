@@ -7,11 +7,11 @@ import { BarChart3, BrainCircuit, Workflow, Code2, BriefcaseBusiness } from "luc
 import type { SanitySkillGroup } from "@/sanity/lib/types";
 
 const categoryAccents: Record<string, string> = {
-  "Data & Analytics": "text-blue-400 border-blue-500/30 bg-blue-500/10",
-  "AI": "text-purple-400 border-purple-500/30 bg-purple-500/10",
-  "Automation": "text-violet-400 border-violet-500/30 bg-violet-500/10",
-  "Development": "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
-  "PMO & Business": "text-amber-400 border-amber-500/30 bg-amber-500/10",
+  "Data & Analytics": "text-blue-600 dark:text-blue-400 border-blue-500/30 bg-blue-500/10",
+  "AI": "text-purple-600 dark:text-purple-400 border-purple-500/30 bg-purple-500/10",
+  "Automation": "text-violet-600 dark:text-violet-400 border-violet-500/30 bg-violet-500/10",
+  "Development": "text-emerald-600 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+  "PMO & Business": "text-amber-600 dark:text-amber-400 border-amber-500/30 bg-amber-500/10",
 };
 
 /**

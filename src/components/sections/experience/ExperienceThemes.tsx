@@ -15,10 +15,10 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const accentMap: Record<string, string> = {
-  "pmo-governance": "text-blue-400 border-blue-500/30 bg-blue-500/10",
-  "analytics-bi": "text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
-  automation: "text-violet-400 border-violet-500/30 bg-violet-500/10",
-  "ai-innovation": "text-purple-400 border-purple-500/30 bg-purple-500/10",
+  "pmo-governance": "text-blue-600 dark:text-blue-400 border-blue-500/30 bg-blue-500/10",
+  "analytics-bi": "text-indigo-600 dark:text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
+  automation: "text-violet-600 dark:text-violet-400 border-violet-500/30 bg-violet-500/10",
+  "ai-innovation": "text-purple-600 dark:text-purple-400 border-purple-500/30 bg-purple-500/10",
 };
 
 export function ExperienceThemes() {

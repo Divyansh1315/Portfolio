@@ -24,12 +24,12 @@ export function SkillsBridge() {
 
           {/* Visual bridge */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <div className="px-5 py-3 rounded-lg border border-blue-500/30 bg-blue-500/10 text-sm font-medium text-blue-400">
+            <div className="px-5 py-3 rounded-lg border border-blue-500/30 bg-blue-500/10 text-sm font-medium text-blue-600 dark:text-blue-400">
               Business Understanding
             </div>
             <div className="hidden sm:block w-12 h-px bg-gradient-to-r from-blue-500/40 to-purple-500/40" />
             <div className="block sm:hidden w-px h-6 bg-gradient-to-b from-blue-500/40 to-purple-500/40" />
-            <div className="px-5 py-3 rounded-lg border border-purple-500/30 bg-purple-500/10 text-sm font-medium text-purple-400">
+            <div className="px-5 py-3 rounded-lg border border-purple-500/30 bg-purple-500/10 text-sm font-medium text-purple-600 dark:text-purple-400">
               Technical Execution
             </div>
           </div>

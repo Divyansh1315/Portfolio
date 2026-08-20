@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { mobileNavigation } from "@/data/navigation";
+import { ThemeToggleInline } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
@@ -76,6 +77,11 @@ export function MobileNav() {
               {item.label}
             </Link>
           ))}
+
+          {/* Theme toggle */}
+          <div className="mt-4 pt-4 border-t border-border">
+            <ThemeToggleInline />
+          </div>
         </nav>
       </div>
     </div>
